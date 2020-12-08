@@ -1,0 +1,44 @@
+﻿<Properties StartupConfiguration="{8F0A54F0-5A0E-B6A5-A79C-E691566A2314}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ScaleChange.cs">
+    <Files>
+      <File FileName="../SnapScript2.cs" Line="10" Column="26" />
+      <File FileName="Assets/Scripts/PlayerController.cs" />
+      <File FileName="Assets/Scripts/op.cs" />
+      <File FileName="Assets/Scripts/CameraController.cs" />
+      <File FileName="Assets/SnapScript2.cs" />
+      <File FileName="Assets/HitPlaySound.cs" />
+      <File FileName="Assets/Script.cs" />
+      <File FileName="Assets/Moveobject.cs" />
+      <File FileName="Assets/Warp.cs" />
+      <File FileName="Assets/WarpMove1.cs" />
+      <File FileName="Assets/Scale.cs" />
+      <File FileName="Assets/MoveRotate.cs" />
+      <File FileName="Assets/MoveRotate1.cs" Line="19" Column="1" />
+      <File FileName="Assets/Rotate.cs" Line="20" Column="9" />
+      <File FileName="Assets/Chase.cs" Line="1" Column="1" />
+      <File FileName="Assets/ScaleChange.cs" Line="13" Column="5" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Roll a Ball" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scenes" expanded="True">
+                <Node name="superpowers-asset-packs-master" expanded="True" />
+              </Node>
+              <Node name="Scripts" expanded="True" />
+              <Node name="ScaleChange.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f384030b-07a7-476a-b470-c49c91b42017" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
