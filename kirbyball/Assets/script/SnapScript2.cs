@@ -8,6 +8,7 @@ public class SnapScript2 : MonoBehaviour
     Plane groudPlane;
     Vector3 downPosition3D;
     Vector3 upPosition3D;
+    Vector3 y3D;
 
     public GameObject sphere;
     public float thurst = 3f;
@@ -37,11 +38,13 @@ public class SnapScript2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 y3D = new Vector3(0f, 10f, 0f);
+
         if (Input.GetMouseButtonDown(0)) //左クリックを押した時
         {
             downPosition3D = GetCursorPosition3D();
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0)) //左クリックを離した時
         {
             upPosition3D = GetCursorPosition3D();
 
@@ -50,6 +53,21 @@ public class SnapScript2 : MonoBehaviour
                 sphere.GetComponent<Rigidbody>().AddForce((downPosition3D - upPosition3D) * thurst, ForceMode.Impulse); //ボールを弾く
             }
         }
+
+        if (Input.GetMouseButtonDown(1)) //右クリックを押した時
+        {
+            downPosition3D = GetCursorPosition3D();
+        }
+        else if (Input.GetMouseButtonUp(1)) //右クリックを離した時
+        {
+            upPosition3D = GetCursorPosition3D();
+
+            if (downPosition3D != ray.origin && upPosition3D != ray.origin)
+            {
+                sphere.GetComponent<Rigidbody>().AddForce((downPosition3D - upPosition3D + y3D) * thurst / 3, ForceMode.Impulse); //ボールを弾く
+            }
+        }
+
     }
 
     Vector3 GetCursorPosition3D()
@@ -79,7 +97,7 @@ public class SnapScript2 : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if (count >= 10)
+        if (count >= 7)
         {
             winText.text = "You Win!";
             pushText.text = "Right　Button Push";
