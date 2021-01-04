@@ -56,6 +56,7 @@
      <Compile Include="Assets\script\Ball.cs" />
      <Compile Include="Assets\script\ball_speedup.cs" />
      <Compile Include="Assets\script\camera_ball.cs" />
+     <Compile Include="Assets\script\Chase.cs" />
      <Compile Include="Assets\script\Goal.cs" />
      <Compile Include="Assets\script\Moveobject.cs" />
      <Compile Include="Assets\script\returntitle.cs" />
