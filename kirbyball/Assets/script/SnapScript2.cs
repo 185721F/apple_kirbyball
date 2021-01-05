@@ -9,7 +9,7 @@ public class SnapScript2 : MonoBehaviour
     Vector3 downPosition3D;
     Vector3 upPosition3D;
     Vector3 y3D;
-
+    GameObject text;
     public GameObject sphere;
     public float thurst = 3f;
 
@@ -27,49 +27,51 @@ public class SnapScript2 : MonoBehaviour
     void Start()
     {
         groudPlane = new Plane(Vector3.up, 0f);
-
+        this.text = GameObject.Find("Text");
         rb = GetComponent<Rigidbody>();
         count = 0;
         SetCountText();
         winText.text = "";
         pushText.text = "";
+
+        
     }
+        
 
     // Update is called once per frame
     void Update()
     {
+        float speed = rb.velocity.magnitude;
         Vector3 y3D = new Vector3(0f, 10f, 0f);
-
-        if (Input.GetMouseButtonDown(0)) //左クリックを押した時
-        {
-            downPosition3D = GetCursorPosition3D();
-        }
-        else if (Input.GetMouseButtonUp(0)) //左クリックを離した時
-        {
-            upPosition3D = GetCursorPosition3D();
-
-            if (downPosition3D != ray.origin && upPosition3D != ray.origin)
+        if(speed == 0){
+            if (Input.GetMouseButtonDown(0)) //左クリックを押した時
             {
-                sphere.GetComponent<Rigidbody>().AddForce((downPosition3D - upPosition3D) * thurst, ForceMode.Impulse); //ボールを弾く
+                downPosition3D = GetCursorPosition3D();
+            }
+            else if (Input.GetMouseButtonUp(0)) //左クリックを離した時
+            {
+                upPosition3D = GetCursorPosition3D();
+                if (downPosition3D != ray.origin && upPosition3D != ray.origin)
+                {
+                    sphere.GetComponent<Rigidbody>().AddForce((downPosition3D - upPosition3D) * thurst, ForceMode.Impulse); //ボールを弾く
+                }
+            }
+            
+            if (Input.GetMouseButtonDown(1)) //右クリックを押した時
+            {
+                downPosition3D = GetCursorPosition3D();
+            }
+            else if (Input.GetMouseButtonUp(1)) //右クリックを離した時
+            {
+                upPosition3D = GetCursorPosition3D();
+                if (downPosition3D != ray.origin && upPosition3D != ray.origin)
+                {
+                    sphere.GetComponent<Rigidbody>().AddForce((downPosition3D - upPosition3D + y3D) * thurst / 3, ForceMode.Impulse); //ボールを弾く
+                }
             }
         }
-
-        if (Input.GetMouseButtonDown(1)) //右クリックを押した時
-        {
-            downPosition3D = GetCursorPosition3D();
-        }
-        else if (Input.GetMouseButtonUp(1)) //右クリックを離した時
-        {
-            upPosition3D = GetCursorPosition3D();
-
-            if (downPosition3D != ray.origin && upPosition3D != ray.origin)
-            {
-                sphere.GetComponent<Rigidbody>().AddForce((downPosition3D - upPosition3D + y3D) * thurst / 3, ForceMode.Impulse); //ボールを弾く
-            }
-        }
-
+        speedzero();
     }
-
     Vector3 GetCursorPosition3D()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);//マウスカーソルから,カメラが向く方向へのレイ
@@ -77,6 +79,16 @@ public class SnapScript2 : MonoBehaviour
         groudPlane.Raycast(ray, out rayDistance); //レイを飛ばす
 
         return ray.GetPoint(rayDistance);//Planeとレイがぶつかった点の座標を返す
+    }
+
+    void speedzero(){
+        float speed = rb.velocity.magnitude;
+        if(speed == 0){
+            this.text.GetComponent<Text>().text = "GO!GO!";
+        }
+        if(speed != 0){
+            this.text.GetComponent<Text>().text = " ";
+        }
     }
 
 
@@ -103,8 +115,5 @@ public class SnapScript2 : MonoBehaviour
             pushText.text = "Right　Button Push";
         }
     }
-
 }
-
-
 
