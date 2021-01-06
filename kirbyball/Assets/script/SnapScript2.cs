@@ -10,6 +10,8 @@ public class SnapScript2 : MonoBehaviour
     Vector3 upPosition3D;
     Vector3 y3D;
     GameObject text;
+    int jumpnumber = 0;
+    public float jumpPower = 100.0f; 
     public GameObject sphere;
     public float thurst = 3f;
 
@@ -41,6 +43,7 @@ public class SnapScript2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var ray = new Ray(this.transform.position, Vector3.down);
         float speed = rb.velocity.magnitude;
         Vector3 y3D = new Vector3(0f, 10f, 0f);
         if(speed == 0){
@@ -56,7 +59,9 @@ public class SnapScript2 : MonoBehaviour
                     sphere.GetComponent<Rigidbody>().AddForce((downPosition3D - upPosition3D) * thurst, ForceMode.Impulse); //ボールを弾く
                 }
             }
-            
+        }
+        if(jumpnumber <= 0)//放ったら一回しか飛べない
+        {
             if (Input.GetMouseButtonDown(1)) //右クリックを押した時
             {
                 downPosition3D = GetCursorPosition3D();
@@ -66,8 +71,14 @@ public class SnapScript2 : MonoBehaviour
                 upPosition3D = GetCursorPosition3D();
                 if (downPosition3D != ray.origin && upPosition3D != ray.origin)
                 {
-                    sphere.GetComponent<Rigidbody>().AddForce((downPosition3D - upPosition3D + y3D) * thurst / 3, ForceMode.Impulse); //ボールを弾く
+                    sphere.GetComponent<Rigidbody>().AddForce((y3D) * thurst / 3, ForceMode.Impulse); //ボールを弾く(ジャンプだけできるようにしました)
+                    jumpnumber += 1;
                 }
+            }
+            if (Input.GetKeyDown(KeyCode.Space))//スペースキーを押すと飛べる
+            {
+                rb.AddForce(new Vector3(0.0f, jumpPower, 0.0f));
+                jumpnumber += 1;
             }
         }
         speedzero();
@@ -85,6 +96,7 @@ public class SnapScript2 : MonoBehaviour
         float speed = rb.velocity.magnitude;
         if(speed == 0){
             this.text.GetComponent<Text>().text = "GO!GO!";
+            jumpnumber = 0;
         }
         if(speed != 0){
             this.text.GetComponent<Text>().text = " ";
