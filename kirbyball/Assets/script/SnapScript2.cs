@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnapScript2 : MonoBehaviour
 {
@@ -10,11 +11,12 @@ public class SnapScript2 : MonoBehaviour
     Vector3 upPosition3D;
     Vector3 y3D;
     GameObject text;
+    int bat = 0;
     int jumpnumber = 0;
     public float jumpPower = 100.0f; 
     public GameObject sphere;
     public float thurst = 3f;
-
+    public GameObject score_object = null;
     public Text countText;
     public Text winText;
     public Text pushText;
@@ -57,6 +59,12 @@ public class SnapScript2 : MonoBehaviour
                 if (downPosition3D != ray.origin && upPosition3D != ray.origin)
                 {
                     sphere.GetComponent<Rigidbody>().AddForce((downPosition3D - upPosition3D) * thurst, ForceMode.Impulse); //ボールを弾く
+                    bat += 1;
+                    if(bat == 5){//5回弾いたらゲームオーバー
+                        if(speed == 0){
+                            SceneManager.LoadScene("Scenes/gameover");
+                        }
+                    }
                 }
             }
         }
@@ -82,6 +90,9 @@ public class SnapScript2 : MonoBehaviour
             }
         }
         speedzero();
+        Text score_text = score_object.GetComponent<Text> ();
+        // テキストの表示を入れ替える
+        score_text.text = bat + "打目";
     }
     Vector3 GetCursorPosition3D()
     {
