@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public Text winText; // リザルトの UI
     public float score = 4; // スコア
 
+    public GameObject Pullshot;
+
 
     private Rigidbody rb; // Rididbody
 
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
         // すべての収集アイテムを獲得した場合
         if (score == 0)
         {
+            Pullshot.gameObject.SetActive(false);
             // リザルトの表示を更新
             winText.text = "You Win!";
         }

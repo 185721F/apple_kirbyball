@@ -10,6 +10,11 @@ public class PullLine : MonoBehaviour
     Vector3 upPosition3D;
     Vector3 Position3D;
 
+    public float speed = 20; // 動く速さ
+    public Text scoreText; // スコアの UI
+    public Text winText; // リザルトの UI
+    public float score = 4; // スコア
+
 
     public Text numText; // 回数の UI
     public Text numText2; // 回数の UI
@@ -31,6 +36,7 @@ public class PullLine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        winText.text = "";
         SetCountText();
         groundPlane = new Plane(Vector3.up, 0f);
     }
@@ -126,14 +132,27 @@ public class PullLine : MonoBehaviour
 
         // 回数の表示を更新
         numText.text = "num: " + num.ToString();
+        // スコアの表示を更新
+        scoreText.text = "Count: " + score.ToString();
+        print(score);
+        // すべての収集アイテムを獲得した場合
+        if (score == 0)
+        {
+            // リザルトの表示を更新
+            winText.text = "You Win!";
+        }
     }
 
     void SetCountText2()
     {
         if (remain == 0)
         {
-            loseText.enabled = true;
-            loseText.text = "You Lose!!";
+            if (score > 0)
+            {
+                loseText.enabled = true;
+                loseText.text = "You Lose!!";
+            }
+            
         }
         else
         {
@@ -150,4 +169,20 @@ public class PullLine : MonoBehaviour
         numText2.enabled = false;
     }
 
-}
+
+    // 玉が他のオブジェクトにぶつかった時に呼び出される
+    void OnTriggerEnter(Collider other)
+    {
+        // ぶつかったオブジェクトが収集アイテムだった場合
+        if (other.gameObject.CompareTag("Pick up"))
+        {
+            // その収集アイテムを非表示にします
+            other.gameObject.SetActive(false);
+            // スコアを加算します
+            score = score - 1;
+
+            // UI の表示を更新します
+            SetCountText();
+        }
+    }
+    }
