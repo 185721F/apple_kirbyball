@@ -10,6 +10,6 @@ public class ball_speedup : MonoBehaviour
          //    other.gameObject.GetComponent<Rigidbody>().transform.Translate(Vector3.right*0.1f);
         //     i++;
         other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        other.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0,0,20),ForceMode.VelocityChange);
+        other.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0,0,30),ForceMode.VelocityChange);
         }
 }
