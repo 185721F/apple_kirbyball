@@ -11,7 +11,7 @@ public class SnapScript2 : MonoBehaviour
     Vector3 upPosition3D;
     Vector3 y3D;
     GameObject text;
-    int bat = 0;
+    private int bat;
     int jumpnumber = 0;
     public float jumpPower = 100.0f; 
     public GameObject sphere;
@@ -23,6 +23,7 @@ public class SnapScript2 : MonoBehaviour
 
     private Rigidbody rb;
     private int count;
+    private int num = 1;
 
     float rayDistance;
     Ray ray;
@@ -33,11 +34,7 @@ public class SnapScript2 : MonoBehaviour
         groudPlane = new Plane(Vector3.up, 0f);
         this.text = GameObject.Find("Text");
         rb = GetComponent<Rigidbody>();
-        count = 0;
-        SetCountText();
-        winText.text = "";
-        pushText.text = "";
-
+        bat = 5;
         
     }
         
@@ -46,9 +43,10 @@ public class SnapScript2 : MonoBehaviour
     void Update()
     {
         var ray = new Ray(this.transform.position, Vector3.down);
+        Rigidbody rb = sphere.GetComponent<Rigidbody>();
         float speed = rb.velocity.magnitude;
         Vector3 y3D = new Vector3(0f, 10f, 0f);
-        if(speed == 0){
+        if(speed == 0.00000){
             if (Input.GetMouseButtonDown(0)) //左クリックを押した時
             {
                 downPosition3D = GetCursorPosition3D();
@@ -59,12 +57,7 @@ public class SnapScript2 : MonoBehaviour
                 if (downPosition3D != ray.origin && upPosition3D != ray.origin)
                 {
                     sphere.GetComponent<Rigidbody>().AddForce((downPosition3D - upPosition3D) * thurst, ForceMode.Impulse); //ボールを弾く
-                    bat += 1;
-                    if(bat == 5){//5回弾いたらゲームオーバー
-                        if(speed == 0){
-                            SceneManager.LoadScene("Scenes/gameover");
-                        }
-                    }
+                    
                 }
             }
         }
@@ -89,10 +82,9 @@ public class SnapScript2 : MonoBehaviour
                 jumpnumber += 1;
             }
         }
+         
+        SetCountText();
         speedzero();
-        Text score_text = score_object.GetComponent<Text> ();
-        // テキストの表示を入れ替える
-        score_text.text = bat + "打目";
     }
     Vector3 GetCursorPosition3D()
     {
@@ -108,35 +100,30 @@ public class SnapScript2 : MonoBehaviour
         if(speed == 0){
             this.text.GetComponent<Text>().text = "GO!GO!";
             jumpnumber = 0;
+            if(num == 0){//止まった時一回だけ打つ回数を減らす
+                bat = bat - 1;
+                num += 1;
+            }
         }
         if(speed != 0){
             this.text.GetComponent<Text>().text = " ";
+            num = 0;//打ったら回数数えられるようになる。
         }
     }
 
-
-
-
-
-    //取ったボールをカウントする
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Pick Up"))
-        {
-            other.gameObject.SetActive(false);
-            count = count + 1;
-            SetCountText();
-        }
-    }
 
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
-        if (count >= 7)
-        {
-            winText.text = "You Win!";
-            pushText.text = "Right　Button Push";
+        float speed = rb.velocity.magnitude;
+        // 回数の表示を更新
+        Text score_text = score_object.GetComponent<Text> ();
+        // テキストの表示を入れ替える
+        score_text.text = "残り回数:" + bat ;
+
+        if(bat == 0){
+            SceneManager.LoadScene("Scenes/gameover");
         }
+        
     }
 }
 
