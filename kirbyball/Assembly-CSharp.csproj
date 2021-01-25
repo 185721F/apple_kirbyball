@@ -71,6 +71,7 @@
      <Compile Include="Assets\script\Warp 2.cs" />
      <Compile Include="Assets\script\warp.cs" />
      <Compile Include="Assets\script\WarpMove1.cs" />
+     <None Include="Assets\QS\QS-Textures-Grass-v1\Documentation\Readme.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/Users/e185728/aa/apple_kirbyball/kirbyball/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
