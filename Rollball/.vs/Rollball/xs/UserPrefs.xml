@@ -1,16 +1,16 @@
 ﻿<Properties StartupConfiguration="{AA1E12BE-38FC-1A65-8A6B-742BF369EAC6}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PullLine.cs">
     <Files>
-      <File FileName="Assets/Scripts/CameraController.cs" Line="19" Column="2" />
-      <File FileName="Assets/Scripts/ButtonScript.cs" Line="13" Column="38" />
-      <File FileName="Assets/Scripts/CameraController3.cs" Line="27" Column="32" />
-      <File FileName="Assets/Scripts/PullLine.cs" Line="130" Column="1" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CameraController.cs" Line="12" Column="65" />
+      <File FileName="Assets/Scripts/ButtonScript.cs" />
+      <File FileName="Assets/Scripts/PullLine.cs" Line="156" Column="45" />
+      <File FileName="Assets/Scripts/PlayerController.cs" />
+      <File FileName="Assets/Scripts/subCameraController.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d31f6b20-1f00-483d-94fb-90fe7f14a5a9" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="762eb54f-adde-4b03-a9d2-d82ba2c0b284" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

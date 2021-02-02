@@ -248,7 +248,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -256,8 +256,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Text
 --- !u!222 &41632737
@@ -756,7 +756,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -764,10 +764,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: num2
 --- !u!222 &234768992
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1236,7 +1236,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1244,8 +1244,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Text
 --- !u!222 &381017552
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 686721705}
-  mainCamera: {fileID: 1295804122}
+  mainCamera: {fileID: 674809352}
   rotate_speed: 2
 --- !u!4 &528209526
 Transform:
@@ -1507,7 +1507,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: num
 --- !u!222 &538992843
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2058,10 +2058,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28aad2ca04ef7454a96e9c3c9a83489d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
   scoreText: {fileID: 1964357084}
   winText: {fileID: 381017551}
-  score: 4
+  score: 10
+  Pullshot: {fileID: 1906914242}
 --- !u!54 &686721707
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3513,7 +3514,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.67948914
+        value: 0.7435902
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -3576,9 +3577,10 @@ MonoBehaviour:
   numText2: {fileID: 234768991}
   loseText: {fileID: 41632736}
   button: {fileID: 611319482}
+  Pullshot: {fileID: 1906914242}
   sphere: {fileID: 686721705}
-  thrust: 3
-  remain: 6
+  thrust: 1.5
+  remain: 10
   line: {fileID: 1906914243}
 --- !u!4 &1906914245
 Transform:
