@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{32357931-2B73-22F3-5B6D-873E0914972B}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/script/Pullline.cs">
+    <Files>
+      <File FileName="Assets/script/Pullline.cs" Line="75" Column="46" />
+      <File FileName="Assets/script/SnapScript2.cs" Line="19" Column="5" />
+      <File FileName="Assets/script/PlayerController.cs" Line="6" Column="46" />
+      <File FileName="Assets/script/SubCameraController.cs" Line="23" Column="65" />
+      <File FileName="Assets/script/camera.cs" Line="6" Column="2" />
+      <File FileName="Assets/script/ButtonScript.cs" Line="28" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="661c5e6b-0954-4da4-8061-cb5f2e92623e" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
