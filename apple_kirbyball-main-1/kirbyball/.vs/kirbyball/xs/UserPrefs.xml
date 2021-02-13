@@ -1,15 +1,13 @@
 ﻿<Properties StartupConfiguration="{32357931-2B73-22F3-5B6D-873E0914972B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../kirbyball/Assets/script/ButtonScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/script/PlayerController.cs">
     <Files>
-      <File FileName="../../kirbyball/Assets/script/Pullline.cs" Line="125" Column="29" />
-      <File FileName="../../kirbyball/Assets/script/PlayerController.cs" Line="35" Column="1" />
-      <File FileName="../../kirbyball/Assets/script/SubCameraController.cs" Line="48" Column="2" />
-      <File FileName="../../kirbyball/Assets/script/ButtonScript.cs" Line="28" Column="2" />
+      <File FileName="Assets/script/Pullline.cs" Line="133" Column="75" />
+      <File FileName="Assets/script/PlayerController.cs" Line="48" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="661c5e6b-0954-4da4-8061-cb5f2e92623e" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d8e3e83c-f343-4845-96bb-7e105ccd05c6" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

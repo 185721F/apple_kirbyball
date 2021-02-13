@@ -28,6 +28,9 @@ public class Pullline : MonoBehaviour
     float rayDistance;
     Ray ray;
 
+    int jumpnumber = 0;
+    public float jumpPower = 100.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,7 @@ public class Pullline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 y3D = new Vector3(0f, 10f, 0f);
 
         // Rigidbody取得
         Rigidbody rb = sphere.GetComponent<Rigidbody>();
@@ -114,6 +118,27 @@ public class Pullline : MonoBehaviour
         else
         {
             numText2.enabled = false;
+        }
+        if(jumpnumber <= 0)//放ったら一回しか飛べない
+        {
+            if (Input.GetMouseButtonDown(1)) //右クリックを押した時
+            {
+                downPosition3D = GetCursorPosition3D();
+            }
+            else if (Input.GetMouseButtonUp(1)) //右クリックを離した時
+            {
+                upPosition3D = GetCursorPosition3D();
+                if (downPosition3D != ray.origin && upPosition3D != ray.origin)
+                {
+                    sphere.GetComponent<Rigidbody>().AddForce((y3D) * thrust / 3, ForceMode.Impulse); //ボールを弾く(ジャンプだけできるようにしました)
+                    jumpnumber += 1;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Space))//スペースキーを押すと飛べる
+            {
+                rb.AddForce(new Vector3(0.0f, jumpPower, 0.0f));
+                jumpnumber += 1;
+            }
         }
 
 
